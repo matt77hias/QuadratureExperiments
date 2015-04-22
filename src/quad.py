@@ -155,6 +155,22 @@ def vis_absolute_error(f, I, ns=range(1, 31)):
     plt.xlabel('n')
     plt.ylabel('|I-In|')
     plt.show()
+    
+def vis_sds(f, I, ns=range(1, 31)):
+    Egs = np.zeros(len(ns))
+    Ecs = np.zeros(len(ns))
+    for j in range(len(ns)):
+        Egs[j] = np.log10(np.divide(abs(I - gausslegendre(f, ns[j])), I))
+        Ecs[j] = np.log10(np.divide(abs(I - clenshawcurtis(f, ns[j])), I))
+    
+    plt.figure()
+    plt.plot(ns, Egs, label='gauss-legendre', color='g', marker='o', ls='-')
+    plt.plot(ns, Ecs, label='clenshaw-curtis', color='b', marker='o', ls='-')
+    plt.legend(loc=1)
+    plt.title('Number of significant digits ' + f.func_name + '(x)')
+    plt.xlabel('n')
+    plt.ylabel('#SDs')
+    plt.show()
 
 def vis_relative_error_testfunctions():
     for i in range(1,7):
@@ -162,5 +178,7 @@ def vis_relative_error_testfunctions():
 def vis_absolute_error_testfunctions():
     for i in range(1,7):
         vis_absolute_error(eval('f' + str(i)), eval('Iv' + str(i))())
-        
+def vis_sds_testfunctions():
+    for i in range(1,7):
+        vis_sds(eval('f' + str(i)), eval('Iv' + str(i))())      
     
