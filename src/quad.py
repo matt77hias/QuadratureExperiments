@@ -17,7 +17,8 @@ def f5(x):
     return np.exp(np.divide(-1.0, (x**2)))
 def f6(x):
     return np.power(np.abs(x), 3)
-
+    
+nb_testfunctions = 6
   
 ###############################################################################
 # INTEGRAL VALUES OF TESTFUNCTIONS
@@ -122,7 +123,7 @@ def clenshawcurtis(f, n):                                         # (n+1)-pt qua
     return np.sum(w * a)                                         # integral value
     
 ###############################################################################
-# ERROR
+# ERRORS AND SIGNIFICANT DIGITS
 ############################################################################### 
 def vis_relative_error(f, I, ns=range(1, 31)):
     Egs = np.zeros(len(ns))
@@ -183,19 +184,29 @@ def nb_of_functionevaluations(f, I, s=-7, ns=range(1, 101)):
             Nc = ns[j] + 1
         if (Ng != -1 and Nc != -1): 
             break
-    return Ng, Nc
+    return (Ng, Nc)
+
+def test(f):
+    results = [None] * nb_testfunctions
+    for i in range(1,7):
+        results[i-1] = f(eval('f' + str(i)), eval('Iv' + str(i))())
+    return results 
 
 def vis_relative_error_testfunctions():
-    for i in range(1,7):
-        vis_relative_error(eval('f' + str(i)), eval('Iv' + str(i))())   
+    test(vis_relative_error)   
 def vis_absolute_error_testfunctions():
-    for i in range(1,7):
-        vis_absolute_error(eval('f' + str(i)), eval('Iv' + str(i))())
+    test(vis_absolute_error)
 def vis_sds_testfunctions():
-    for i in range(1,7):
-        vis_sds(eval('f' + str(i)), eval('Iv' + str(i))())
+    test(vis_sds)
 def nb_of_functionevaluations_testfunctions():
-    for i in range(1,7):
-        Ng, Nc = nb_of_functionevaluations(eval('f' + str(i)), eval('Iv' + str(i))())
-        print('f' + str(i) + ': ' + str(Ng) + ' vs ' + str(Nc))     
+    results = test(nb_of_functionevaluations)
+    for i in range(len(results)):
+        (Ng, Nc) = results[i]
+        print('f' + str(i) + ': ' + str(Ng) + ' vs ' + str(Nc))  
     
+###############################################################################
+# MONTE CARLO INTEGRATION
+############################################################################### 
+def mc(f, s, lo=-1, hi=1, rng=np.random):
+    xs = lo + (hi-lo) * np.random.sample(s)
+    return np.divide(np.sum(f(xs)), s)
