@@ -176,10 +176,10 @@ def nb_of_functionevaluations(f, I, s=-7, ns=range(1, 101)):
     Ng = Nc = -1
     for j in range(len(ns)):
         sg = np.log10(np.divide(abs(I - gausslegendre(f, ns[j])), I))
-        if (sg <= s): 
+        if (Ng == -1 and sg <= s): 
             Ng = ns[j] + 1 
         sc = np.log10(np.divide(abs(I - clenshawcurtis(f, ns[j])), I))
-        if (sc <= s): 
+        if (Nc == -1 and sc <= s): 
             Nc = ns[j] + 1
         if (Ng != -1 and Nc != -1): 
             break
