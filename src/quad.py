@@ -157,20 +157,33 @@ def vis_absolute_error(f, I, ns=range(1, 31)):
     plt.show()
     
 def vis_sds(f, I, ns=range(1, 31)):
-    Egs = np.zeros(len(ns))
-    Ecs = np.zeros(len(ns))
+    Ngs = np.zeros(len(ns))
+    Ncs = np.zeros(len(ns))
     for j in range(len(ns)):
-        Egs[j] = np.log10(np.divide(abs(I - gausslegendre(f, ns[j])), I))
-        Ecs[j] = np.log10(np.divide(abs(I - clenshawcurtis(f, ns[j])), I))
+        Ngs[j] = np.log10(np.divide(abs(I - gausslegendre(f, ns[j])), I))
+        Ncs[j] = np.log10(np.divide(abs(I - clenshawcurtis(f, ns[j])), I))
     
     plt.figure()
-    plt.plot(ns, Egs, label='gauss-legendre', color='g', marker='o', ls='-')
-    plt.plot(ns, Ecs, label='clenshaw-curtis', color='b', marker='o', ls='-')
+    plt.plot(ns, Ngs, label='gauss-legendre', color='g', marker='o', ls='-')
+    plt.plot(ns, Ncs, label='clenshaw-curtis', color='b', marker='o', ls='-')
     plt.legend(loc=1)
     plt.title('Number of significant digits ' + f.func_name + '(x)')
     plt.xlabel('n')
     plt.ylabel('#SDs')
     plt.show()
+    
+def nb_of_functionevaluations(f, I, s=-7, ns=range(1, 101)):
+    Ng = Nc = -1
+    for j in range(len(ns)):
+        sg = np.log10(np.divide(abs(I - gausslegendre(f, ns[j])), I))
+        if (sg <= s): 
+            Ng = ns[j] + 1 
+        sc = np.log10(np.divide(abs(I - clenshawcurtis(f, ns[j])), I))
+        if (sc <= s): 
+            Nc = ns[j] + 1
+        if (Ng != -1 and Nc != -1): 
+            break
+    return Ng, Nc
 
 def vis_relative_error_testfunctions():
     for i in range(1,7):
@@ -180,5 +193,9 @@ def vis_absolute_error_testfunctions():
         vis_absolute_error(eval('f' + str(i)), eval('Iv' + str(i))())
 def vis_sds_testfunctions():
     for i in range(1,7):
-        vis_sds(eval('f' + str(i)), eval('Iv' + str(i))())      
+        vis_sds(eval('f' + str(i)), eval('Iv' + str(i))())
+def nb_of_functionevaluations_testfunctions():
+    for i in range(1,7):
+        Ng, Nc = nb_of_functionevaluations(eval('f' + str(i)), eval('Iv' + str(i))())
+        print('f' + str(i) + ': ' + str(Ng) + ' vs ' + str(Nc))     
     
