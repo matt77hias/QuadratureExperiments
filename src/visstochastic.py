@@ -7,7 +7,7 @@ import mc
 # ------------------------------
 # ERRORS AND SIGNIFICANT DIGITS
 ###############################################################################
-def vis_relative_error(f, I, ns=range(1, 100000, 100)):
+def vis_relative_error(f, I, ns=range(1, 31)):
     Ems = np.zeros(len(ns))
     for j in range(len(ns)):
         Ems[j] = np.divide(abs(I - mc.mc(f, ns[j])), I)
@@ -20,7 +20,7 @@ def vis_relative_error(f, I, ns=range(1, 100000, 100)):
     plt.ylabel('|I-In|/I')
     plt.show()
     
-def vis_absolute_error(f, I, ns=range(1, 100000, 100)):
+def vis_absolute_error(f, I, ns=range(1, 31)):
     Ems = np.zeros(len(ns))
     for j in range(len(ns)):
         Ems[j] = abs(I - mc.mc(f, ns[j]))
@@ -33,7 +33,7 @@ def vis_absolute_error(f, I, ns=range(1, 100000, 100)):
     plt.ylabel('|I-In|')
     plt.show()
     
-def vis_sds(f, I, ns=range(1, 100000, 100)):
+def vis_sds(f, I, ns=range(1, 31)):
     Nms = np.zeros(len(ns))
     for j in range(len(ns)):
         Nms[j] = np.log10(np.divide(abs(I - mc.mc(f, ns[j])), I))
@@ -46,7 +46,7 @@ def vis_sds(f, I, ns=range(1, 100000, 100)):
     plt.ylabel('#SDs')
     plt.show()
     
-def nb_of_functionevaluations(f, I, s=-7, ns=range(1, 100000, 100)):
+def nb_of_functionevaluations(f, I, s=-7, ns=range(1, 31)):
     Nm = -1
     for j in range(len(ns)):
         sg = np.log10(np.divide(abs(I - mc.mc(f, ns[j])), I))

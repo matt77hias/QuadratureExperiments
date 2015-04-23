@@ -65,7 +65,7 @@ def dnb_of_functionevaluations_testfunctions():
         print('f' + str(i) + ': ' + str(Ng) + ' vs ' + str(Nc))
         
 def svis_relative_error_testfunctions():
-    test(viss.is_relative_error)   
+    test(viss.vis_relative_error)   
 def svis_absolute_error_testfunctions():
     test(viss.vis_absolute_error)
 def svis_sds_testfunctions():
