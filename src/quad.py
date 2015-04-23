@@ -109,7 +109,7 @@ def rombergtable(f, n, lo=-1, hi=1):
             T[i,j] = T[i,j-1] + (T[i,j-1] - T[i-1,j-1]) / (p4 - 1) #Instead of p19
     return T
     
-def vis_romberg(f, n, lo=-1, hi=1):
+def vis_romberg(f, n=5, lo=-1, hi=1):
     T = rombergtable(f, n, lo=lo, hi=hi)
     h = hi - lo
     p2 = 1

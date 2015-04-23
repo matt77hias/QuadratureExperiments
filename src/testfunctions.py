@@ -3,6 +3,8 @@ import visfunction as visf
 import visdeterministic as visd
 import visstochastic as viss
 
+from quad import vis_romberg
+
 ###############################################################################
 # TESTFUNCTIONS
 ###############################################################################
@@ -62,6 +64,10 @@ def dnb_of_functionevaluations_testfunctions():
     results = test(visd.nb_of_functionevaluations)
     for i in range(len(results)):
         print('f' + str(i) + ': ' + str(results[i][0]) + ' vs ' + str(results[i][1]) + ' vs ' + str(results[i][2]))
+        
+def romberg():
+   for i in range(1,7):
+        vis_romberg(eval('f' + str(i)))
         
 def svis_relative_error_testfunctions():
     test(viss.vis_relative_error)   
