@@ -1,5 +1,7 @@
 import numpy as np
-import visualization as vis
+import visfunction as visf
+import visdeterministic as visd
+import visstochastic as viss
 
 ###############################################################################
 # TESTFUNCTIONS
@@ -39,7 +41,7 @@ def Iv6():
 # VISUALIZATION OF TESTFUNCTIONS
 ###############################################################################     
 def vis_testfunctions(x=np.linspace(-1,1,10000)):
-    vis.vis_functions(x, [f1,f2,f3,f4,f5,f6], title='Testfunctions')
+    visf.vis_functions(x, [f1,f2,f3,f4,f5,f6], title='Testfunctions')
     
 ###############################################################################
 # ERRORS AND SIGNIFICANT DIGITS
@@ -50,14 +52,26 @@ def test(f):
         results[i-1] = f(eval('f' + str(i)), eval('Iv' + str(i))())
     return results 
 
-def vis_relative_error_testfunctions():
-    test(vis.vis_relative_error)   
-def vis_absolute_error_testfunctions():
-    test(vis.vis_absolute_error)
-def vis_sds_testfunctions():
-    test(vis.vis_sds)
-def nb_of_functionevaluations_testfunctions():
-    results = test(vis.nb_of_functionevaluations)
+def dvis_relative_error_testfunctions():
+    test(visd.vis_relative_error)   
+def dvis_absolute_error_testfunctions():
+    test(visd.vis_absolute_error)
+def dvis_sds_testfunctions():
+    test(visd.vis_sds)
+def dnb_of_functionevaluations_testfunctions():
+    results = test(visd.nb_of_functionevaluations)
     for i in range(len(results)):
         (Ng, Nc) = results[i]
         print('f' + str(i) + ': ' + str(Ng) + ' vs ' + str(Nc))
+        
+def svis_relative_error_testfunctions():
+    test(viss.is_relative_error)   
+def svis_absolute_error_testfunctions():
+    test(viss.vis_absolute_error)
+def svis_sds_testfunctions():
+    test(viss.vis_sds)
+def snb_of_functionevaluations_testfunctions():
+    results = test(viss.nb_of_functionevaluations)
+    for i in range(len(results)):
+        (Nm) = results[i]
+        print('f' + str(i) + ': ' + str(Nm))
