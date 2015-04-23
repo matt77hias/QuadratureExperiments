@@ -61,8 +61,8 @@ def dvis_sds_testfunctions():
 def dnb_of_functionevaluations_testfunctions():
     results = test(visd.nb_of_functionevaluations)
     for i in range(len(results)):
-        (Ng, Nc) = results[i]
-        print('f' + str(i) + ': ' + str(Ng) + ' vs ' + str(Nc))
+        (Ng, Nc, Nr) = results[i]
+        print('f' + str(i) + ': ' + str(Ng) + ' vs ' + str(Nc) + ' vs ' + str(Nr))
         
 def svis_relative_error_testfunctions():
     test(viss.vis_relative_error)   
