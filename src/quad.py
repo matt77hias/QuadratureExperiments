@@ -4,6 +4,9 @@ from scipy.special.orthogonal import p_roots
 ###############################################################################
 # GAUSS-LEGENDRE QUADRATURE METHOD
 ############################################################################### 
+def gausslegendre_ntfx(n):
+    return n + 1;
+
 def gausslegendre(f, n, lo=-1, hi=1):                          # (n+1)-pt quadrature
     x, w = p_roots(n+1)
     return 0.5 * (hi-lo) * np.sum(w * f(0.5 * (hi-lo) * x + 0.5 * (hi+lo)))
@@ -62,6 +65,9 @@ def gausslegendre_weights(n):
 ###############################################################################
 # CLENSHAW-CURTIS QUADRATURE METHOD
 ############################################################################### 
+def clenshawcurtis_ntfx(n):
+    return n + 1;
+
 def clenshawcurtis(f, n):                                         # (n+1)-pt quadrature
     x = np.cos(np.pi * np.arange(0, n+1) / n)                     # Chebyshev points (extrema)
     fx = f(x) / (2.0 * n)                                         # f evaluated at these points
@@ -74,6 +80,9 @@ def clenshawcurtis(f, n):                                         # (n+1)-pt qua
 ###############################################################################
 # ROMBERG METHOD
 ###############################################################################
+def romberg_ntfx(n):
+    return int(2**(n-1)) + 2;
+
 def romberg(f, n, lo=-1, hi=1):
     return rombergtable(f, n, lo=lo, hi=hi)[n,n]
 
