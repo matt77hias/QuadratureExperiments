@@ -119,4 +119,17 @@ def vis_romberg(f, n=5, lo=-1, hi=1):
         h = 0.5 * h
         p2 = 2 * p2
         
-  
+###############################################################################
+# COMPOUND TRAPEZOIDAL RULE
+############################################################################### 
+def trapezoidalrule_ntfx(n):
+    return n;
+
+def trapezoidalrule(f, n=2, lo=-1, hi=1):
+    Q = 0.5 * (f(lo) + f(hi))
+    h = float(hi - lo) / (n - 1)
+    i = lo
+    for l in range(1, n - 1):
+        i = i + h
+        Q = Q + f(i)  
+    return Q * h  
