@@ -3,8 +3,6 @@ import visfunction as visf
 import visdeterministic as visd
 import visstochastic as viss
 
-from quad import vis_romberg
-
 ###############################################################################
 # TESTFUNCTIONS
 ###############################################################################
@@ -64,7 +62,8 @@ def dnb_of_functionevaluations_testfunctions():
     results = test(visd.nb_of_functionevaluations)
     for i in range(len(results)):
         print('f' + str(i) + ': ' + str(results[i][0]) + ' vs ' + str(results[i][1]) + ' vs ' + str(results[i][2]))
-        
+
+from quad import vis_romberg     
 def romberg():
    for i in range(1,7):
         vis_romberg(eval('f' + str(i)))
@@ -79,3 +78,19 @@ def snb_of_functionevaluations_testfunctions():
     results = test(viss.nb_of_functionevaluations)
     for i in range(len(results)):
         print('f' + str(i) + ': ' + str(results[i][0]))
+
+from quad import trapezoidalrule        
+def trapezoidal():
+    results = [None] * 4
+    for i in range(1,5):
+        results[i-1] = trapezoidalrule(eval('f' + str(i)), n=31)
+    return results
+    
+from nullrule import vis_errors        
+def errors():
+    for i in range(1,5):
+        vis_errors(eval('f' + str(i)), np.linspace(-1,1,31))
+from nullrule import vis_reductionfactors        
+def reductionfactors():
+    for i in range(1,5):
+        vis_reductionfactors(eval('f' + str(i)), np.linspace(-1,1,31))

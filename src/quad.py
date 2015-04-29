@@ -132,4 +132,11 @@ def trapezoidalrule(f, n=2, lo=-1, hi=1):
     for l in range(1, n - 1):
         i = i + h
         Q = Q + f(i)  
-    return Q * h  
+    return Q * h 
+    
+def trapezoidalrule_weights(n=2, lo=-1, hi=1):
+    h = float(hi - lo) / (n - 1)
+    ws = np.ones(n) * h
+    ws[0] = ws[0] * 0.5
+    ws[-1] = ws[-1] * 0.5
+    return ws 
