@@ -3,7 +3,7 @@ Course Deterministic and Stochastic Integration Techniques: Quadrature experimen
 
 **Academic Year**: 2014-2015 (2nd semester - 2nd Master of Science in Engineering: Computer Science)
 
-# About
+## About
 Some experiments for numerically computing integrals using quadrature formulas (e.g. Gauss-Legendre, Clenshaw-Curtis, Romberg table).
 
 <p align="center"><img src="https://github.com/matt77hias/QuadratureExperiments/blob/master/Graphs/testfunctions.png" width="431"></p>
