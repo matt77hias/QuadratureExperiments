@@ -6,7 +6,7 @@ Course Deterministic and Stochastic Integration Techniques: Quadrature experimen
 ## About
 Some experiments for numerically computing integrals using quadrature formulas (e.g. Gauss-Legendre, Clenshaw-Curtis, Romberg table).
 
-<p align="center"><img src="https://github.com/matt77hias/QuadratureExperiments/blob/master/Graphs/testfunctions.png" width="431"></p>
-<p align="center"><img src="https://github.com/matt77hias/QuadratureExperiments/blob/master/Graphs/f1r.png" width="431"> <img src="https://github.com/matt77hias/QuadratureExperiments/blob/master/Graphs/f2r.png" width="431"></p>
-<p align="center"><img src="https://github.com/matt77hias/QuadratureExperiments/blob/master/Graphs/f3r.png" width="431"> <img src="https://github.com/matt77hias/QuadratureExperiments/blob/master/Graphs/f4r.png" width="431"></p>
-<p align="center"><img src="https://github.com/matt77hias/QuadratureExperiments/blob/master/Graphs/f5r.png" width="431"> <img src="https://github.com/matt77hias/QuadratureExperiments/blob/master/Graphs/f6r.png" width="431"></p>
+<p align="center"><img src="Graphs/testfunctions.png" width="431"></p>
+<p align="center"><img src="Graphs/f1r.png" width="431"> <img src="Graphs/f2r.png" width="431"></p>
+<p align="center"><img src="Graphs/f3r.png" width="431"> <img src="Graphs/f4r.png" width="431"></p>
+<p align="center"><img src="Graphs/f5r.png" width="431"> <img src="Graphs/f6r.png" width="431"></p>
