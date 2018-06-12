@@ -95,12 +95,12 @@ def rombergtable(f, n, lo=-1, hi=1):
         h = 0.5 * h
         p2 = 2 * p2
         
-        #Odd contributions
+        # Odd contributions
         tsum = 0.0
         for k in range(1, p2, 2):
             tsum = tsum + f(lo + k * h)
         
-        #Compound trapezoid rule via Richardson extrapolation
+        # Compound trapezoid rule via Richardson extrapolation
         T[i,0] = 0.5 * T[i-1,0] + h * tsum
         
         p4 = 1
