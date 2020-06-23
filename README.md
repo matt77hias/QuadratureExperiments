@@ -11,7 +11,7 @@ Course Deterministic and Stochastic Integration Techniques: Quadrature experimen
 ## About
 Numerical integration using quadrature formulas (e.g., Gauss-Legendre, Clenshaw-Curtis, Romberg table).
 
-<p align="center"><img src="Graphs/testfunctions.png" width="431"></p>
-<p align="center"><img src="Graphs/f1r.png" width="431"> <img src="Graphs/f2r.png" width="431"></p>
-<p align="center"><img src="Graphs/f3r.png" width="431"> <img src="Graphs/f4r.png" width="431"></p>
-<p align="center"><img src="Graphs/f5r.png" width="431"> <img src="Graphs/f6r.png" width="431"></p>
+<p align="center"><img src="Graphs/testfunctions.png" width="429"></p>
+<p align="center"><img src="Graphs/f1r.png" width="429"> <img src="Graphs/f2r.png" width="429"></p>
+<p align="center"><img src="Graphs/f3r.png" width="429"> <img src="Graphs/f4r.png" width="429"></p>
+<p align="center"><img src="Graphs/f5r.png" width="429"> <img src="Graphs/f6r.png" width="429"></p>
